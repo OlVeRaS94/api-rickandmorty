@@ -1,0 +1,21 @@
+<router-outlet></router-outlet>
+
+<div class="listaPersonajes" *ngIf="personajes != null; else espera">
+
+  <div class="card" style="width: 18rem" *ngFor="let personaje of personajes">
+    <img
+      src="{{ personaje.image }}"
+      class="card-img-top"
+      alt="{{ personaje.name }}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ personaje.name }}</h5>
+      <p class="card-text">Created: {{ personaje.created }}</p>
+      <a href="{{ personaje.url }}" class="btn btn-primary"
+        >Página de {{ personaje.name }}</a
+      >
+    </div>
+  </div>
+</div>
+
+<ng-template #espera></ng-template>
